@@ -1,0 +1,20 @@
+.{
+    .name = .wireframe,
+    .version = "0.1.0",
+    .fingerprint = 0xed7b9519df0fbf65, // Changing this has security and trust implications.
+    .minimum_zig_version = "0.16.0",
+    .dependencies = .{
+        .limine_bin = .{
+            .url = "https://github.com/Limine-Bootloader/Limine/releases/download/v12.9.6/limine-binary.tar.gz",
+            .hash = "N-V-__8AAHi4VwBudO2V0e3sGHNRNRIJeDgKN3bLHm61ETC-",
+        },
+    },
+    .paths = .{
+        "build.zig",
+        "build.zig.zon",
+        "build",
+        "src",
+        "LICENSE.txt",
+        "README.md",
+    },
+}
