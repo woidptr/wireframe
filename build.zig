@@ -14,15 +14,11 @@ pub fn build(b: *std.Build) void {
 
     const ctx: Ctx = .{ .b = b, .target = target, .optimize = optimize };
 
-    const boot_mod = ctx.mod(target_cfg.entryRoot(bootloader));
-    const arch_mod = ctx.mod(target_cfg.archRoot(arch));
-
-    const limine_mod = ctx.mod("vendors/limine/limine.zig");
-    boot_mod.addImport("limine", limine_mod);
+    const graph = modules.graph(ctx, arch, bootloader);
 
     const kernel = b.addExecutable(.{
         .name = "wireframe",
-        .root_module = boot_mod,
+        .root_module = graph.boot,
     });
 
     kernel.setLinkerScript(linker.generate(b, arch, bootloader));

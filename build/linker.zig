@@ -95,7 +95,9 @@ fn rodataExtra(boot: BootLoader) []const u8 {
 fn dataExtra(boot: BootLoader) []const u8 {
     return switch (boot) {
         .limine =>
+        \\        KEEP(*(.limine_requests_start))
         \\        KEEP(*(.limine_requests))
+        \\        KEEP(*(.limine_requests_end))
         \\
         ,
     };

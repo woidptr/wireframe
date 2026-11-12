@@ -35,7 +35,7 @@ pub fn query(arch: Arch) std.Target.Query {
 
 pub fn archRoot(arch: Arch) []const u8 {
     return switch (arch) {
-        .x86_64 => "x86_64",
+        .x86_64 => "src/arch/x86_64/root.zig",
     };
 }
 
